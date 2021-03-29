@@ -5,7 +5,7 @@ require 'win32/sound'
 include Win32
 
 state = '' # eg. 'New Jersey'
-town = '' # eg. 'Edison'
+town = '' # This has to match a town name on the CVS site, eg. 'Edison'
 days_to_run = 7
 stop_at_this_date = Time.now + (60 * 60 * 24 * days_to_run)
 puts "CVS vaccination availabilities script running until #{stop_at_this_date}"
@@ -16,7 +16,7 @@ if state.empty?
 end
 
 if town.empty?
-  print 'Enter town (eg. Edison): '
+  print 'Enter town (This has to match a town name on the CVS site, eg. Edison): '
   town = gets.chomp
 end
 
