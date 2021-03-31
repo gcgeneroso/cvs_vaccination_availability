@@ -29,8 +29,9 @@ until (Time.now > stop_at_this_date)
   b.link(class: 'acsCloseButton').click if b.link(class: 'acsCloseButton').present?
   b.link(text: state).click
   b.wait_until { b.div(class: 'modal--active').present? }
+  b.wait_until { b.div(class: 'modal--active').div(class: 'covid-status').trs.any? }
   town_index = b.div(class: 'modal--active').div(class: 'covid-status').trs.find_index { |row| row.text.include? town }
-  if !b.div(class: 'modal--active').div(class: 'covid-status').trs[town_index].text.include? 'Fully Booked'
+  if b.div(class: 'modal--active').div(class: 'covid-status').trs[town_index].text.include? 'Available'
     Sound.beep(1200, 5000)
     break
   end
