@@ -29,11 +29,12 @@ until (Time.now > stop_at_this_date)
   b.link(class: 'acsCloseButton').click if b.link(class: 'acsCloseButton').present?
   b.link(text: state).click
   b.wait_until { b.div(class: 'modal--active').present? }
-  b.wait_until { b.div(class: 'modal--active').div(class: 'covid-status').trs.any? }
+  b.wait_until { b.div(class: 'modal--active').div(class: 'covid-status').present? }
+  b.wait_until { b.div(class: 'modal--active').div(class: 'covid-status').trs.any? { |row| row.text.include? town } }
   town_index = b.div(class: 'modal--active').div(class: 'covid-status').trs.find_index { |row| row.text.include? town }
   if b.div(class: 'modal--active').div(class: 'covid-status').trs[town_index].text.include? 'Available'
+    puts "Availability found in #{town} at #{Time.now}"
     Sound.beep(1200, 5000)
-    break
   end
   puts "Last checked on: #{Time.now}"
   sleep rand(60..80)
