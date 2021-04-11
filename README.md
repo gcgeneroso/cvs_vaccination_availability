@@ -5,6 +5,7 @@ Checks CVS every minute for available slots in your state/town and beeps if it's
 
 * Windows (haven't used OS X or any other OS since this uses win32-sound to alert)
 * Ruby 2.2.0 or higher (https://www.ruby-lang.org/en/downloads/)
+* Google Chrome
 
 ## Setup
 
