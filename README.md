@@ -21,7 +21,7 @@ In the root of this project:
 ```
 ruby cvs_vaccine.rb
 ```
-The state and town you enter is case-sensitive. Go to https://www.cvs.com/immunizations/covid-19-vaccine, click into your state, and find the town where you want to vaccinated at.
+The state and town you enter is case-sensitive. Go to https://www.cvs.com/immunizations/covid-19-vaccine, click into your state, and find the town where you want to be vaccinated at.
 
 ## Notes
 
